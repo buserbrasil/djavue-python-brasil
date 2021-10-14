@@ -1,0 +1,27 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=app
+    ports:
+      - 5432:5432
+    volumes:
+      - ../dkdata/postgres:/var/lib/postgresql/data
+  web:
+    image: djavue-python-brasil
+    container_name: djavue-python-brasil
+    build: .
+    command: start_web.sh
+    environment:
+      - DJANGO_DB_HOST=db
+      - DJANGO_DEBUG=0
+    depends_on:
+      - db
+    ports:
+      - '8000:8000'
+      - '3000:3000'
+      - '80:80'
+    volumes:
+      - ../../core:/app/core
