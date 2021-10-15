@@ -13,15 +13,15 @@ export default {
   components: {
     home
   },
-  data () {
-    return {
-      tweets: null
-    }
-  },
-  mounted () {
-    api.list_tweets().then(result => {
-      this.tweets = result
+  asyncData () {
+    console.log('asyncData')
+    return api.list_tweets().then(result => {
+      console.log('asyncData RETURN')
+      return {tweets: result}
     })
+  },
+  data () {
+    return {}
   }
 }
 </script>
