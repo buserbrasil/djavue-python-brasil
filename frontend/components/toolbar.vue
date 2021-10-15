@@ -1,7 +1,6 @@
 <template>
   <v-app-bar color="blue-grey" dark fixed app clipped-right>
-    <v-app-bar-nav-icon @click.stop="state.drawer = !state.drawer" />
-    <v-toolbar-title>Toolbar</v-toolbar-title>
+    <v-toolbar-title><router-link :to="{name : 'index'}">Home</router-link></v-toolbar-title>
     <v-spacer />
     <v-btn v-if="!logged_user" text dark ripple class="ma-0 ml-5" @click="open_login_dialog($event)">Login</v-btn>
 
@@ -38,7 +37,6 @@
         </v-list>
       </v-card>
     </v-menu>
-    <v-app-bar-nav-icon @click.stop="state.drawerRight = !state.drawerRight" />
     <login-dialog ref="login_dialog" />
   </v-app-bar>
 </template>
