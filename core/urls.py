@@ -9,4 +9,5 @@ urlpatterns = [
     path('api/settings', views.settings),
     path('api/add_todo', views.add_todo),
     path('api/list_todos', views.list_todos),
+    path('api/list_tweets', views.list_tweets),
 ]

@@ -47,6 +47,7 @@ def settings(request):
     le_settings = globalsettings_svc.list_settings()
     return JsonResponse(le_settings)
 
+
 @ajax_login_required
 def add_todo(request):
     todo = todo_svc.add_todo(request.POST['new_task'])
@@ -73,3 +74,19 @@ def _user2dict(user):
         }
     }
     return d
+
+
+def list_tweets(request):
+    return JsonResponse(
+        [
+            {
+                'id': 1,
+                'author_name': 'Zé Ninguém',
+                'author_username': '@zeninguem',
+                'author_avatar': 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+                'created_at': '43min',
+                'text': 'Eu sou do povo, eu sou um Zé ninguém'
+            }
+        ],
+        safe=False
+    )
