@@ -4,6 +4,7 @@ from django.http.response import HttpResponse, JsonResponse
 from django.contrib import auth
 from commons.django_model_utils import get_or_none
 from commons.django_views_utils import ajax_login_required
+from core.models import Tweet
 from core.service import log_svc, todo_svc, globalsettings_svc
 from django.views.decorators.csrf import csrf_exempt
 
@@ -79,14 +80,7 @@ def _user2dict(user):
 def list_tweets(request):
     return JsonResponse(
         [
-            {
-                'id': 1,
-                'author_name': 'Zé Ninguém',
-                'author_username': '@zeninguem',
-                'author_avatar': 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-                'created_at': '43min',
-                'text': 'Eu sou do povo, eu sou um Zé ninguém'
-            }
+            tweet.to_dict() for tweet in Tweet.objects.order_by('-id').all()
         ],
         safe=False
     )

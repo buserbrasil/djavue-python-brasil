@@ -37,5 +37,15 @@ class Tweet(models.Model):
     author_name = models.CharField(max_length=64)
     author_username = models.CharField(max_length=64)
     author_avatar = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.CharField(max_length=64)
     text = models.TextField()
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'author_name': self.author_name,
+            'author_username': self.author_username,
+            'author_avatar': self.author_avatar,
+            'created_at': self.created_at,
+            'text': self.text
+        }
