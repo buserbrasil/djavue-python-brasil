@@ -1,9 +1,12 @@
 <template>
-  <home :tweets="tweets"></home>
+  <div>
+    <v-progress-linear :indeterminate="true" v-if="!tweets"></v-progress-linear>
+    <home :tweets="tweets" v-if="tweets"></home>
+  </div>
 </template>
 
 <script>
-
+import api from '~api'
 import home from '~/components/Home.vue'
 
 export default {
@@ -12,33 +15,13 @@ export default {
   },
   data () {
     return {
-      tweets: [
-        {
-          id: 1,
-          author_name: 'Zé Ninguém',
-          author_username: '@zeninguem',
-          author_avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-          created_at: '43min',
-          text: 'Eu sou do povo, eu sou um Zé ninguém'
-        },
-        {
-          id: 2,
-          author_name: 'Zé Ninguém 2',
-          author_username: '@zeninguem 2',
-          author_avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-          created_at: '45min',
-          text: 'Eu sou do povo, eu sou um Zé ninguém, de novo'
-        },
-        {
-          id: 3,
-          author_name: 'Maria Ninguém',
-          author_username: '@marianinguem',
-          author_avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-          created_at: '1h43min',
-          text: 'Eu sou do povo, eu sou uma Maria ninguém'
-        }
-      ]
+      tweets: null
     }
+  },
+  mounted () {
+    api.list_tweets().then(result => {
+      this.tweets = result
+    })
   }
 }
 </script>

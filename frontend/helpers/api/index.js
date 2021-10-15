@@ -18,5 +18,8 @@ export default {
   },
   add_todo (newtask) {
     return post('/api/add_todo', {new_task: newtask})
+  },
+  list_tweets () {
+    return get('/api/list_tweets')
   }
 }
