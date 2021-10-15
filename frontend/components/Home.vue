@@ -1,5 +1,9 @@
 <template>
-  <timeline :tweets="tweets"></timeline>
+  <div>
+    <timeline :tweets="tweets"></timeline>
+    <pre>{{logged_user}}</pre>
+
+  </div>
 </template>
 
 <script>
@@ -13,6 +17,11 @@ export default {
   },
   data () {
     return {}
+  },
+  computed: {
+    logged_user () {
+      return this.$store.state.auth.currentUser
+    }
   }
 }
 </script>
