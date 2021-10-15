@@ -1,20 +1,15 @@
 <template>
-  <home></home>
+  <h1>Agora a timeline fica aqui</h1>
 </template>
 
 <script>
-
-import home from '~/components/Home.vue'
-
 export default {
-  components: {
-    home
-  },
   data () {
     return {}
   }
 }
 </script>
 
-<style>
+<style scoped>
+
 </style>

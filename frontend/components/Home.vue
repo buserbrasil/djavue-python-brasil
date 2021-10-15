@@ -1,14 +1,14 @@
 <template>
-  <home></home>
+  <timeline></timeline>
 </template>
 
 <script>
 
-import home from '~/components/Home.vue'
+import timeline from '~/components/Timeline.vue'
 
 export default {
   components: {
-    home
+    timeline
   },
   data () {
     return {}
@@ -16,5 +16,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
 </style>
