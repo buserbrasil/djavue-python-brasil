@@ -5,4 +5,5 @@ dkdata
 coverage.xml
 htmlcov/
 .idea
+.venv
 /djavue-python-brasil.log
