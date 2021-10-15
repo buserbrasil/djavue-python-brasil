@@ -1,17 +1,20 @@
 <template>
   <v-list three-line>
-    <template v-for="twett in twetts">
+    <template v-for="tweet in tweets">
       <v-list-item>
         <v-list-item-avatar>
-          <v-img :src="twett.author_avatar"/>
+          <v-img :src="tweet.author_avatar"/>
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>{{ twett.author_name }} / {{ twett.author_username }} / {{
-              twett.created_at
-            }}
+          <v-list-item-title>
+            <router-link :to="{name: 'user-username', params:{username:tweet.author_username}}">
+              {{ tweet.author_name }}
+            </router-link>
+            / {{ tweet.author_username }}
+            / {{ tweet.created_at }}
           </v-list-item-title>
-          <v-list-item-subtitle>{{ twett.text }}</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ tweet.text }}</v-list-item-subtitle>
         </v-list-item-content>
 
       </v-list-item>
@@ -22,7 +25,7 @@
 
 <script>
 export default {
-  props: ['twetts'],
+  props: ['tweets'],
   data () {
     return {}
   }

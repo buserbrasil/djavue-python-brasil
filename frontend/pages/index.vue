@@ -1,5 +1,5 @@
 <template>
-  <home :twetts="twetts"></home>
+  <home :tweets="tweets"></home>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
   },
   data () {
     return {
-      twetts: [
+      tweets: [
         {
           id: 1,
           author_name: 'Zé Ninguém',

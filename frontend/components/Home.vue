@@ -1,5 +1,5 @@
 <template>
-  <timeline :twetts="twetts"></timeline>
+  <timeline :tweets="tweets"></timeline>
 </template>
 
 <script>
@@ -7,7 +7,7 @@
 import timeline from '~/components/Timeline.vue'
 
 export default {
-  props: ['twetts'],
+  props: ['tweets'],
   components: {
     timeline
   },
