@@ -7,6 +7,7 @@ A diferença está em usar o template [djavue2](https://github.com/evolutio/djav
 Passos a seguir:
 1. Para instalação no WSL2 com Ubuntu 20.04: [Script de setup](https://github.com/renzon/computer-init-setups/blob/main/wls2.sh)
 1. Instalação do vue-cli: `npm install -g vue-cli`
+1. vue init evolutio/djavue2 djavue-python-brasil
 1. Carregando comandos: `source dev.sh`
 1. rodar comando `dkbuild`
 1. Ao rodar esse comando, houve problemas porque o diretório /run/nginx já existia. Solução foi usar a opção `-p` no comando mkdir do Dockerfile
